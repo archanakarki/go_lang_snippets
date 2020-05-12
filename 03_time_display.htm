@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- saved from url=(0024)https://play.golang.org/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>The Go Playground</title>
+		<link rel="stylesheet" href="./03_time_display_files/style.css">
+		
+		<script type="text/javascript" async="" src="./03_time_display_files/analytics.js"></script><script async="" src="./03_time_display_files/js"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-11222381-7');
+			gtag('config', 'UA-49880327-6');
+		</script>
+		
+		<script src="./03_time_display_files/jquery.min.js"></script>
+		<script src="./03_time_display_files/jquery-linedtextarea.js"></script>
+		<script src="./03_time_display_files/playground.js"></script>
+		<script src="./03_time_display_files/playground-embed.js"></script>
+		<script>
+		$(document).ready(function() {
+			playground({
+				'codeEl':       '#code',
+				'outputEl':     '#output',
+				'runEl':        '#run, #embedRun',
+				'fmtEl':        '#fmt',
+				'fmtImportEl':  '#imports',
+				
+				'shareEl':      '#share',
+				'shareURLEl':   '#shareURL',
+				
+				'enableHistory': true,
+				'enableShortcuts': true,
+				'enableVet': true,
+				'toysEl': '.js-playgroundToysEl'
+			});
+			playgroundEmbed({
+				'codeEl':       '#code',
+				
+				'shareEl':      '#share',
+				
+				'embedEl':      '#embed',
+				'embedLabelEl': '#embedLabel',
+				'embedHTMLEl':  '#shareURL'
+			});
+			$('#code').linedtextarea();
+			
+			$('#code').attr('wrap', 'off');
+			var about = $('#about');
+			about.click(function(e) {
+				if ($(e.target).is('a')) {
+					return;
+				}
+				about.hide();
+			});
+			$('#aboutButton').click(function() {
+				if (about.is(':visible')) {
+					about.hide();
+					return;
+				}
+				about.show();
+			})
+			
+			if (readCookie('playgroundImports') == 'true') {
+				$('#imports').attr('checked','checked');
+			}
+			$('#imports').change(function() {
+				createCookie('playgroundImports', $(this).is(':checked') ? 'true' : '');
+			});
+			
+			
+			$('#run').click(function() {
+				gtag('event', 'click', {
+					event_category: 'playground',
+					event_label: 'run-button',
+				});
+			});
+			$('#share').click(function() {
+				gtag('event', 'click', {
+					event_category: 'playground',
+					event_label: 'share-button',
+				});
+			});
+			
+		});
+
+		function createCookie(name, value) {
+			document.cookie = name+"="+value+"; path=/";
+		}
+
+		function readCookie(name) {
+			var nameEQ = name + "=";
+			var ca = document.cookie.split(';');
+			for(var i=0;i < ca.length;i++) {
+				var c = ca[i];
+				while (c.charAt(0)==' ') c = c.substring(1,c.length);
+				if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+			}
+			return null;
+		}
+		</script>
+	</head>
+	<body itemscope="" itemtype="http://schema.org/CreativeWork" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+		<input type="button" value="Run" id="embedRun">
+		<div id="banner">
+			<div id="head" itemprop="name">The Go Playground</div>
+			<input type="button" value="Run" id="run">
+			<input type="button" value="Format" id="fmt">
+			<div id="importsBox">
+				<label title="Rewrite imports on Format">
+					<input type="checkbox" id="imports">
+					Imports
+				</label>
+			</div>
+			
+			<input type="button" value="Share" id="share">
+			<input type="text" id="shareURL" style="display: none;">
+			<label id="embedLabel" style="display: none;">
+				<input type="checkbox" id="embed">
+				embed
+			</label>
+			
+			<select class="js-playgroundToysEl">
+				<option value="hello.txt">Hello, playground</option>
+				<option value="test.txt">Tests</option>
+				<option value="multi.txt">Multiple files</option>
+				<option value="image.txt">Display image</option>
+				<option value="sleep.txt">Sleep</option>
+				<option value="clear.txt">Clear</option>
+			</select>
+			<input type="button" value="About" id="aboutButton">
+		</div>
+		<div id="wrap"><grammarly-extension class="_1KJtL" style="position: absolute; top: 0px; left: 0px; pointer-events: none;"><div data-grammarly-part="highlights" class="u_fNK" style="position: absolute; top: 0px; left: 0px;"><div style="box-sizing: content-box; top: 5px; left: 23.7344px; width: 605.266px; height: 444px; position: relative; pointer-events: none; overflow: hidden; border: 0px; border-radius: 0px; padding: 0px; margin: 0px;"><div style="position: absolute; top: 0px; left: 0px;"><div style="height: 1244px; width: 1239px;"><div><div class="_3F-Wk _3mEyK _2Qe2S" style="top: 51px; left: 79.4219px; width: 26.5px; height: 17px;"></div><div class="_3F-Wk _3mEyK _2Qe2S" style="top: 119px; left: 0px; width: 35.3125px; height: 17px;"></div></div><div></div></div></div></div></div><div data-grammarly-part="button" class="u_fNK" style="position: absolute; top: 0px; left: 0px;"><div style="box-sizing: content-box; top: 5px; left: 23.7344px; width: 605.266px; height: 444px; position: relative; pointer-events: none; overflow: hidden; border: 0px; border-radius: 0px; padding: 0px; margin: 0px;"><div style="position: absolute; transform: translate(-100%, -100%); top: 436px; left: 597.266px; width: auto; height: auto; pointer-events: all;"><div style="flex-direction: row; display: flex; pointer-events: auto;"><div style="position: relative;"></div><div><div class="_5WizN _1y8ub _34Jb6 _1QzSN"><div class="_3YmQx"><div title="Found 2 errors in text" class="_3QdKe">2</div></div></div></div></div></div></div></div></grammarly-extension>
+			<div class="linedtextarea" style="height:100%; overflow:hidden"><div class="lines" style="width: 3%; margin-top: 0px;"><div class="">1</div><div>2</div><div class="">3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div><div>9</div><div class="">10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div><div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div></div><textarea itemprop="description" id="code" name="code" autocorrect="off" autocomplete="off" autocapitalize="off" spellcheck="false" wrap="off" style="width: 97%;">// You can edit this code!
+// Click here and start typing.
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, 世界")
+}
+</textarea></div>
+		</div>
+		<div id="output"><pre class=""><span class="stdout">Welcome to the playground
+This time is  2009-11-10 23:00:00 +0000 UTC m=+0.000000001
+</span><span class="system">
+Program exited.</span></pre></div>
+		<img itemprop="image" src="./03_time_display_files/gopher.png" style="display:none">
+		<div id="about">
+<p><b>About the Playground</b></p>
+
+<p>
+The Go Playground is a web service that runs on
+<a href="https://golang.org/">golang.org</a>'s servers.
+The service receives a Go program, <a href="https://golang.org/cmd/vet/">vets</a>, compiles, links, and
+runs the program inside a sandbox, then returns the output.
+</p>
+
+<p>
+If the program contains <a href="https://golang.org/pkg/testing">tests or examples</a>
+and no main function, the service runs the tests.
+Benchmarks will likely not be supported since the program runs in a sandboxed
+environment with limited resources.
+</p>
+
+<p>
+There are limitations to the programs that can be run in the playground:
+</p>
+
+<ul>
+
+<li>
+The playground can use most of the standard library, with some exceptions.
+The only communication a playground program has to the outside world
+is by writing to standard output and standard error.
+</li>
+
+<li>
+In the playground the time begins at 2009-11-10 23:00:00 UTC
+(determining the significance of this date is an exercise for the reader).
+This makes it easier to cache programs by giving them deterministic output.
+</li>
+
+<li>
+There are also limits on execution time and on CPU and memory usage.
+</li>
+
+</ul>
+
+<p>
+The article "<a href="https://blog.golang.org/playground" target="_blank" rel="noopener">Inside
+the Go Playground</a>" describes how the playground is implemented.
+The source code is available at <a href="https://go.googlesource.com/playground" target="_blank" rel="noopener">
+https://go.googlesource.com/playground</a>.
+</p>
+
+<p>
+The playground uses the latest stable release of Go.<br>
+The current version is <a href="https://play.golang.org/p/Ztyu2FJaajl">go1.14.2</a>.
+</p>
+
+<p>
+The playground service is used by more than just the official Go project
+(<a href="https://gobyexample.com/">Go by Example</a> is one other instance)
+and we are happy for you to use it on your own site.
+All we ask is that you
+<a href="mailto:golang-dev@googlegroups.com">contact us first (note this is a public mailing list)</a>,
+use a unique user agent in your requests (so we can identify you),
+and that your service is of benefit to the Go community.
+</p>
+
+<p>
+Any requests for content removal should be directed to
+<a href="mailto:security@golang.org">security@golang.org</a>.
+Please include the URL and the reason for the request.
+</p>
+		</div>
+	
+
+</body><grammarly-mirror class="_1KJtL"><div data-grammarly-part="mirror" style="border: 0px transparent; margin: 0px; padding: 0px; font: 400 14.6667px Menlo, monospace; direction: ltr; text-align: left; text-shadow: none; text-indent: 0px; letter-spacing: normal; word-break: normal; overflow-wrap: normal; word-spacing: 0px; writing-mode: horizontal-tb; white-space: pre-wrap; vertical-align: baseline; clear: none; box-sizing: content-box; width: 605.266px; height: 444px; position: fixed; top: 0px; left: 0px; background: transparent; pointer-events: none; overflow: hidden; color: transparent; z-index: -2147483648; visibility: hidden;">package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main(){
+	fmt.Println("Welcome to the playground")
+	fmt.Println("This time is ", time.Now())
+}
+</div></grammarly-mirror><grammarly-popups class="_1KJtL"></grammarly-popups></html>
